@@ -10,4 +10,4 @@ const axiosInstance = axios.create({
   headers: { "x-api-key": API_KEY },
 });
 
-export default axiosInstance;
+export { axiosInstance as axios };
