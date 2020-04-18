@@ -22,6 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --silent --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -57,10 +58,14 @@
       "enzyme-to-json/serializer"
     ],
     "coverageReporters": [
-      "lcov"
+      "lcov",
+      "text"
     ],
     "collectCoverageFrom": [
-      "src/**/*ts(x)"
+      "src/**/*.{ts,tsx}",
+      "!src/**/index.ts",
+      "!src/index.tsx",
+      "!src/react-app-env.d.ts"
     ]
   }
 }
