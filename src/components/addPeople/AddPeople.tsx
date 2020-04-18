@@ -1,19 +1,32 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useState, ChangeEvent } from "react";
 
-import { useStore } from "../../store";
 import { StyledAddPeople } from "./StyledAddPeople";
 
-const AddPeople: FC = (): ReactElement => {
-  const {
-    peopleStore: { people },
-  } = useStore();
+interface IAddPeopleProps {
+  handleSubmit(value: string): void;
+}
+
+export const AddPeople: FC<IAddPeopleProps> = ({
+  handleSubmit,
+}): ReactElement => {
+  const [value, setValue] = useState<string>("");
+
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    event.preventDefault();
+    setValue(event.target.value);
+  };
 
   return (
     <StyledAddPeople>
-      <textarea placeholder="name nationality age risk" rows={10} />
-      <button onClick={() => console.log("Click")}>SUBMIT</button>
+      <textarea
+        onChange={handleChange}
+        placeholder="Name, Country, Age, Risk percentage"
+        rows={10}
+        value={value}
+      />
+      <button onClick={() => handleSubmit(value)} disabled={!value.length}>
+        SUBMIT
+      </button>
     </StyledAddPeople>
   );
 };
-
-export default AddPeople;

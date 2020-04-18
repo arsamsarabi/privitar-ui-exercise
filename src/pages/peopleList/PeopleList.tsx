@@ -6,7 +6,7 @@ import { Collapsible, Loading, AddPeople } from "../../components";
 
 const PeopleList: FC = (): ReactElement => {
   const {
-    peopleStore: { people, loading },
+    peopleStore: { people, loading, addPeople },
   } = useStore();
 
   const [expanded, setExpanded] = useState<false | number>(false);
@@ -30,7 +30,7 @@ const PeopleList: FC = (): ReactElement => {
         );
       })}
 
-      <AddPeople />
+      <AddPeople handleSubmit={addPeople} />
     </StyledPeopleList>
   );
 };

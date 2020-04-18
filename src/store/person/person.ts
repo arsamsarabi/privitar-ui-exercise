@@ -5,8 +5,8 @@ export interface IPerson {
   firstName: string;
   lastName: string;
   nationality: string;
-  age: number;
-  riskPercentage: number;
+  age?: number;
+  riskPercentage?: number;
 }
 
 export interface IPersonStore extends IPerson {
@@ -18,8 +18,8 @@ class Person implements IPersonStore {
   @observable firstName: string;
   @observable lastName: string;
   @observable nationality: string;
-  @observable age: number;
-  @observable riskPercentage: number;
+  @observable age?: number;
+  @observable riskPercentage?: number;
 
   constructor(args: IPerson) {
     this.id = args.id || 999;

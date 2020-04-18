@@ -15,7 +15,7 @@ export const StyledFooter = styled.footer<WithTheme>(
       z-index: 1;
 
       p {
-        color: ${palette.primary.main};
+        color: ${palette.primary};
       }
 
       @media ${devices.tablet} {

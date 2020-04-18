@@ -13,6 +13,12 @@ export const StyledAddPeople = styled.section<WithTheme>(
         border: 2px solid ${palette.grey};
         resize: none;
         padding: 8px;
+
+        &:focus,
+        &:active {
+          outline: none;
+          border-color: ${palette.primary};
+        }
       }
 
       button {
@@ -24,10 +30,18 @@ export const StyledAddPeople = styled.section<WithTheme>(
         margin-top: 8px;
         box-shadow: inset 0 -0.6em 0 -0.35em rgba(0, 0, 0, 0.17);
         position: relative;
+        cursor: pointer;
 
         &:active {
           top: 0.1rem;
           box-shadow: none;
+          outline: none;
+        }
+
+        &:disabled {
+          background-color: ${palette.grey}DF;
+          pointer-events: none;
+          opacity: 0.5;
         }
       }
     `;

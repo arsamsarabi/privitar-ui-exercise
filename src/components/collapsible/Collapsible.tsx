@@ -10,9 +10,9 @@ import {
 interface ICollapsibleProps {
   id: number;
   name: string;
-  age: number;
+  age?: number;
   nationality: string;
-  privacyRisk: number;
+  privacyRisk?: number;
   expanded: false | number;
   setExpanded(val: false | number): void;
 }
@@ -50,7 +50,7 @@ export const Collapsible: FC<ICollapsibleProps> = ({
             <StyledCollapsibleContent>
               <div>
                 <p>Age:</p>
-                <span>{age}</span>
+                <span>{age || "-"}</span>
               </div>
               <div>
                 <p>Nationality:</p>
@@ -58,7 +58,7 @@ export const Collapsible: FC<ICollapsibleProps> = ({
               </div>
               <div>
                 <p>Privacy Risk:</p>
-                <span>{privacyRisk}%</span>
+                <span>{privacyRisk ? `${privacyRisk}%` : "-"}</span>
               </div>
             </StyledCollapsibleContent>
           </motion.section>

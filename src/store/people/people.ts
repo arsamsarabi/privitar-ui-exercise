@@ -8,15 +8,19 @@ export interface IPeopleStore {
   people: IPersonStore[];
   loading: boolean;
   fetchPeople(): Promise<void>;
+  addPeople(raw: string): void;
 }
 
 class People implements IPeopleStore {
   @observable people: IPersonStore[];
   @observable loading: boolean;
+  @observable peopleTextArea: string;
 
   constructor() {
     this.people = [];
     this.loading = false;
+    this.peopleTextArea = "";
+    this.fetchPeople();
   }
 
   @action
@@ -41,6 +45,27 @@ class People implements IPeopleStore {
     }
   };
 
+  @action
+  addPeople = async (raw: string): Promise<void> => {
+    const newPeople: Omit<services.IApiPerson, "id">[] = this.parseRawInput(
+      raw
+    );
+
+    this.loading = true;
+
+    const [error, response] = await to<services.IApiPerson[]>(
+      services.postPeople(newPeople)
+    );
+
+    if (error) {
+      console.error(error);
+      this.loading = false;
+    } else if (response) {
+      this.people = [...this.people, ...this.peopleFromApiResponse(response)];
+      this.loading = false;
+    }
+  };
+
   protected peopleFromApiResponse = (
     people: services.IApiPerson[]
   ): IPersonStore[] => {
@@ -51,13 +76,64 @@ class People implements IPeopleStore {
           id: person.id,
           firstName: person.first_name,
           lastName: person.last_name,
-          age: person.age,
+          age: person.age || undefined,
           nationality: person.nationality,
-          riskPercentage: person.risk_percentage,
+          riskPercentage: person.risk_percentage || undefined,
         })
       );
     });
     return result;
+  };
+
+  protected parseRawInput = (
+    raw: string
+  ): Omit<services.IApiPerson, "id">[] => {
+    const result: Omit<services.IApiPerson, "id">[] = [];
+
+    raw.split("\n").forEach((line: string) => {
+      const rawPersonData = line.split(" ");
+      const risk_percentage = this.parseRiskPercentage(rawPersonData.pop());
+      const age = this.parseAge(rawPersonData.pop());
+      const nationality = String(rawPersonData.pop());
+      const first_name = String(rawPersonData.shift());
+      const last_name = rawPersonData.join(" ");
+      result.push({
+        first_name,
+        last_name,
+        nationality,
+        age,
+        risk_percentage,
+      });
+    });
+    return result;
+  };
+
+  protected parseAge = (age?: string): number | null => {
+    if (age && age.indexOf("/") === -1) {
+      return parseInt(age);
+    } else if (age) {
+      return this.calculateAge(age);
+    }
+    return null;
+  };
+
+  protected parseRiskPercentage = (risk?: string): number | null => {
+    if (risk && parseFloat(risk) * 100 < 100) {
+      return parseFloat(risk) * 100;
+    }
+    return null;
+  };
+
+  protected calculateAge = (dob: string): number => {
+    const [day, month, year] = dob.split("/");
+    const birthday = new Date(
+      parseInt(year),
+      parseInt(month) - 1,
+      parseInt(day)
+    );
+    const ageDifMs = Date.now() - birthday.getTime();
+    const ageDate = new Date(ageDifMs);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
 }
 
