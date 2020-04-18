@@ -13,9 +13,11 @@
     "axios": "^0.19.2",
     "mobx": "^5.15.4",
     "mobx-react-lite": "^2.0.6",
+    "polished": "^3.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0",
     "typescript": "~3.7.2"
   },
   "scripts": {
@@ -41,6 +43,7 @@
   },
   "devDependencies": {
     "@types/moxios": "^0.4.9",
+    "@types/styled-components": "^5.1.0",
     "dotenv": "^8.2.0",
     "moxios": "^0.4.0"
   }
