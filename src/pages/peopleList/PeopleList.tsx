@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useState } from "react";
 
 import { useStore } from "../../store";
 import { StyledPeopleList } from "./StyledPeopleList";
-import { Collapsible, Loading } from "../../components";
+import { Collapsible, Loading, AddPeople } from "../../components";
 
 const PeopleList: FC = (): ReactElement => {
   const {
@@ -29,6 +29,8 @@ const PeopleList: FC = (): ReactElement => {
           />
         );
       })}
+
+      <AddPeople />
     </StyledPeopleList>
   );
 };

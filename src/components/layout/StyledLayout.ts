@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components";
-import { lighten } from "polished";
 import { devices } from "../../styles";
 
 export const StyledLayout = styled.div<WithTheme>(
@@ -8,7 +7,7 @@ export const StyledLayout = styled.div<WithTheme>(
       display: flex;
       flex-direction: column;
       main {
-        background-color: ${lighten(0.6, palette.grey)};
+        background-color: ${palette.grey}25;
         width: 100vw;
         height: calc(
           100vh - ${spacing.headerHeight.mobile} -
