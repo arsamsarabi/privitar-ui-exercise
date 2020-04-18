@@ -22,6 +22,16 @@ export const StyledLayout = styled.div<WithTheme>(
           padding: ${spacing.padding.tablet};
         }
       }
+
+      @media ${devices.laptop} {
+        main {
+          height: calc(
+            100vh - ${spacing.headerHeight.laptop} -
+              ${spacing.footerHeight.laptop}
+          );
+          padding: ${spacing.padding.tablet};
+        }
+      }
     `;
   }
 );

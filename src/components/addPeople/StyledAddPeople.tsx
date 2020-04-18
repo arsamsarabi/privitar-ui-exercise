@@ -28,6 +28,10 @@ export const StyledTextArea = styled.textarea<WithTheme>(
       @media ${devices.tablet} {
         padding: 16px 16px 0;
       }
+
+      @media ${devices.laptop} {
+        font-size: 1.125rem;
+      }
     `;
   }
 );

@@ -28,6 +28,12 @@ export const StyledHeader = styled.header<WithTheme>(
 
       @media ${devices.laptop} {
         height: ${spacing.headerHeight.laptop};
+
+        & > div {
+          &:first-of-type {
+            margin-right: 32px;
+          }
+        }
       }
     `;
   }
@@ -39,6 +45,10 @@ export const StyledLogo = styled.img`
   @media ${devices.tablet} {
     width: 50px;
   }
+
+  @media ${devices.laptop} {
+    width: 75px;
+  }
 `;
 
 export const StyledAppName = styled.h1<WithTheme>(({ theme: { palette } }) => {
@@ -48,6 +58,10 @@ export const StyledAppName = styled.h1<WithTheme>(({ theme: { palette } }) => {
 
     @media ${devices.tablet} {
       font-size: 1.5rem;
+    }
+
+    @media ${devices.laptop} {
+      font-size: 2rem;
     }
   `;
 });
@@ -64,6 +78,10 @@ export const StyledSubTitle = styled.p<WithTheme>(
 
       @media ${devices.tablet} {
         font-size: 1.125rem;
+      }
+
+      @media ${devices.laptop} {
+        font-size: 1.5rem;
       }
     `;
   }

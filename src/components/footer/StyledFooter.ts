@@ -24,6 +24,13 @@ export const StyledFooter = styled.footer<WithTheme>(
           font-size: 1.25rem;
         }
       }
+
+      @media ${devices.laptop} {
+        height: ${spacing.footerHeight.laptop};
+        p {
+          font-size: 1.5rem;
+        }
+      }
     `;
   }
 );
