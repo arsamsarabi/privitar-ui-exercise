@@ -1,50 +1,39 @@
 import { observable, computed } from "mobx";
 
 export interface IPerson {
+  id?: number;
   firstName: string;
   lastName: string;
-  country: string;
-  age: number | string;
-  riskFactor: number;
-  riskPercentage: string;
+  nationality: string;
+  age: number;
+  riskPercentage: number;
+}
+
+export interface IPersonStore extends IPerson {
   fullName: string;
 }
 
-class Person implements IPerson {
+class Person implements IPersonStore {
+  @observable id?: number;
   @observable firstName: string;
   @observable lastName: string;
-  @observable country: string;
-  @observable age: number | string;
-  @observable riskFactor: number;
+  @observable nationality: string;
+  @observable age: number;
+  @observable riskPercentage: number;
 
-  constructor(
-    name: string,
-    country: string,
-    age: number | string,
-    riskFactor: number
-  ) {
-    this.firstName = this.getFirstName(name);
-    this.lastName = this.getLastNames(name);
-    this.country = country;
-    this.age = age;
-    this.riskFactor = riskFactor;
+  constructor(args: IPerson) {
+    this.id = args.id;
+    this.firstName = args.firstName;
+    this.lastName = args.lastName;
+    this.nationality = args.nationality;
+    this.age = args.age;
+    this.riskPercentage = args.riskPercentage;
   }
 
   @computed
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
-
-  @computed
-  get riskPercentage(): string {
-    return `${this.riskFactor * 100}%`;
-  }
-
-  protected getFirstName = (name: string): string =>
-    name.substr(0, name.indexOf(" "));
-
-  protected getLastNames = (name: string): string =>
-    name.substr(name.indexOf(" ") + 1);
 }
 
 export default Person;

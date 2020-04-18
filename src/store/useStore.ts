@@ -1,9 +1,9 @@
 import { createContext, useContext } from "react";
 
-import People, { IPeople } from "./people/people";
+import People, { IPeopleStore } from "./people/people";
 
 type StoresContextType = {
-  people: IPeople;
+  people: IPeopleStore;
 };
 
 const storesContext = createContext<StoresContextType>({

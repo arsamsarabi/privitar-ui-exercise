@@ -1,14 +1,19 @@
-import Person, { IPerson } from "./person";
+import Person, { IPersonStore } from "./person";
 
 describe("Person Store", () => {
   it("Should initialize correctly", () => {
-    const isabelle: IPerson = new Person("Isabelle Ringing", "UK", 32, 0.12);
+    const isabelle: IPersonStore = new Person({
+      firstName: "Isabelle",
+      lastName: "Ringing",
+      nationality: "UK",
+      age: 32,
+      riskPercentage: 42,
+    });
     expect(isabelle.firstName).toEqual("Isabelle");
     expect(isabelle.lastName).toEqual("Ringing");
     expect(isabelle.fullName).toEqual("Isabelle Ringing");
-    expect(isabelle.country).toEqual("UK");
+    expect(isabelle.nationality).toEqual("UK");
     expect(isabelle.age).toEqual(32);
-    expect(isabelle.riskFactor).toEqual(0.12);
-    expect(isabelle.riskPercentage).toEqual("12%");
+    expect(isabelle.riskPercentage).toEqual(42);
   });
 });
