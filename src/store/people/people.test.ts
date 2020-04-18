@@ -37,10 +37,6 @@ describe("People Store", () => {
     peopleStore = new People();
   });
 
-  it("Should initialize with an empty array of people", () => {
-    expect(peopleStore.people).toEqual([]);
-  });
-
   describe("fetchPeople()", () => {
     beforeEach(() => {
       moxios.install(axios);
@@ -60,14 +56,20 @@ describe("People Store", () => {
         });
       });
 
-      expect(peopleStore.people.length).toEqual(0);
+      const lengthBefore = peopleStore.people.length;
 
       await peopleStore.fetchPeople();
 
-      expect(peopleStore.people.length).toEqual(3);
-      expect(peopleStore.people[0].firstName).toBe("Olive");
-      expect(peopleStore.people[1].fullName).toBe("Isabelle Ringing");
-      expect(peopleStore.people[2].nationality).toBe("United States");
+      expect(peopleStore.people.length).toEqual(lengthBefore + 3);
+      expect(peopleStore.people[peopleStore.people.length - 3].firstName).toBe(
+        "Olive"
+      );
+      expect(peopleStore.people[peopleStore.people.length - 2].fullName).toBe(
+        "Isabelle Ringing"
+      );
+      expect(
+        peopleStore.people[peopleStore.people.length - 1].nationality
+      ).toBe("United States");
     });
   });
 });

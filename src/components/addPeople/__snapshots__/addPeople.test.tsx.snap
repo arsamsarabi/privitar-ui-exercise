@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledAddPeople Should render as expected 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 24px;
+}
+
+@media (min-width:768px) {
+  .c0 {
+    margin-top: 32px;
+  }
+}
+
+<section
+  className="c0"
+/>
+`;
