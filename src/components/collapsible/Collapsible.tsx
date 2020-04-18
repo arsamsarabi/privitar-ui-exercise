@@ -48,16 +48,18 @@ export const Collapsible: FC<ICollapsibleProps> = ({
             transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
             <StyledCollapsibleContent>
-              <p>
-                Age: <span>{age}</span>
-              </p>
-              <div />
-              <p>
-                Nationality: <span>{nationality}</span>
-              </p>
-              <p>
-                Privacy Risk: <span>{privacyRisk}%</span>
-              </p>
+              <div>
+                <p>Age:</p>
+                <span>{age}</span>
+              </div>
+              <div>
+                <p>Nationality:</p>
+                <span>{nationality}</span>
+              </div>
+              <div>
+                <p>Privacy Risk:</p>
+                <span>{privacyRisk}%</span>
+              </div>
             </StyledCollapsibleContent>
           </motion.section>
         )}

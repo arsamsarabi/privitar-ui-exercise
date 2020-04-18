@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle<GlobalStyleProps>(({ theme }) => {
       font-family: ${theme.typography.family.primary};
       font-size: 18px;
       font-weight: ${theme.typography.weight.normal};
-      color: ${theme.palette.common.grey};
+      color: ${theme.palette.grey};
     }
     #root {
       width: 100vw;

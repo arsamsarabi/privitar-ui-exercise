@@ -8,7 +8,7 @@ export const StyledLayout = styled.div<WithTheme>(
       display: flex;
       flex-direction: column;
       main {
-        background-color: ${lighten(0.6, palette.common.grey)};
+        background-color: ${lighten(0.6, palette.grey)};
         width: 100vw;
         height: calc(
           100vh - ${spacing.headerHeight.mobile} -

@@ -1,22 +1,12 @@
 /// <reference types="react-scripts" />
 
-type ColourFragment = {
-  light: string;
-  main: string;
-  dark: string;
-};
-
-type CommonColours = {
+type ColourPalette = {
+  primary: string;
+  secondary: string;
+  success: string;
+  danger: string;
   grey: string;
   white: string;
-};
-
-type ColourPalette = {
-  primary: ColourFragment;
-  secondary: ColourFragment;
-  success: ColourFragment;
-  danger: ColourFragment;
-  common: CommonColours;
 };
 
 type ResponsiveValue<T> = {

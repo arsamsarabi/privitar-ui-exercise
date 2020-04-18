@@ -11,7 +11,7 @@ export const StyledHeader = styled.header<WithTheme>(
       padding: ${spacing.padding.mobile};
       width: 100vw;
       height: ${spacing.headerHeight.mobile};
-      box-shadow: 0 0px 10px 0px ${rgba(palette.primary.light, 0.35)};
+      box-shadow: 0 0px 10px 0px ${rgba(palette.primary, 0.35)};
       z-index: 1;
 
       & > div {
@@ -29,13 +29,13 @@ export const StyledHeader = styled.header<WithTheme>(
 
       h1 {
         font-size: 1.25rem;
-        color: ${palette.primary.main};
+        color: ${palette.primary};
       }
 
       p {
         font-size: 0.9rem;
         span {
-          color: ${palette.secondary.main};
+          color: ${palette.secondary};
           font-weight: ${typography.weight.bold};
           margin-right: 4px;
         }

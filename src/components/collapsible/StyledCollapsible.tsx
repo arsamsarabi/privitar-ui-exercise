@@ -1,9 +1,10 @@
 import styled, { css } from "styled-components";
+import { devices } from "../../styles";
 
 export const StyledCollapsible = styled.div(({ theme: { palette } }) => {
   return css`
-    background: ${palette.common.white};
-    border: 2px solid ${palette.common.grey};
+    background: ${palette.white};
+    border: 2px solid ${palette.grey};
     padding: 8px 16px;
     &:not(:last-of-type) {
       margin-bottom: 16px;
@@ -20,19 +21,51 @@ export const StyledCollapsibleHeader = styled.button(
       align-items: center;
 
       p {
-        color: ${palette.primary.main};
+        color: ${palette.primary};
         font-weight: ${typography.weight.bold};
       }
 
       span {
         font-family: ${typography.family.secondary};
         font-size: 1.5rem;
-        color: ${palette.common.grey};
+        color: ${palette.grey};
       }
     `;
   }
 );
 
-export const StyledCollapsibleContent = styled.div(({ theme: { palette } }) => {
-  return css``;
-});
+export const StyledCollapsibleContent = styled.div(
+  ({ theme: { palette, typography } }) => {
+    return css`
+      display: flex;
+      flex-direction: column;
+      padding-top: 12px;
+
+      & > div {
+        display: flex;
+        p {
+          min-width: 50%;
+          font-size: 0.95rem;
+        }
+        span {
+          color: ${palette.primary};
+          font-weight: ${typography.weight.bold};
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        &:not(:last-of-type) {
+          margin-bottom: 8px;
+        }
+      }
+
+      @media ${devices.tablet} {
+        flex-direction: row;
+        flex-wrap: wrap;
+        & > * {
+          width: 50%;
+        }
+      }
+    `;
+  }
+);
