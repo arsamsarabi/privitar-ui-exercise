@@ -19,7 +19,7 @@ export const StyledFooter = styled.footer<WithTheme>(
       }
 
       @media ${devices.tablet} {
-        padding: ${spacing.padding.tablet};
+        padding: ${spacing.padding.laptop};
         p {
           font-size: 1.25rem;
         }
@@ -27,6 +27,9 @@ export const StyledFooter = styled.footer<WithTheme>(
 
       @media ${devices.laptop} {
         height: ${spacing.footerHeight.laptop};
+        width: ${spacing.containerWidth.laptop};
+        box-shadow: none;
+        margin: 0 auto;
         p {
           font-size: 1.5rem;
         }

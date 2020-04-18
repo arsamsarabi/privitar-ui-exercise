@@ -16,7 +16,7 @@ const Header: FC = (): ReactElement => {
   return (
     <StyledHeader>
       <div>
-        <StyledLogo src="/images/logo_square.png" alt="Privitar Logo" />
+        <StyledLogo src="/images/logo.png" alt="Privitar Logo" />
       </div>
       <div>
         <StyledAppName>Privitar Privacy Protector</StyledAppName>

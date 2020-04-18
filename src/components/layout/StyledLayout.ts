@@ -19,7 +19,7 @@ export const StyledLayout = styled.div<WithTheme>(
 
       @media ${devices.tablet} {
         main {
-          padding: ${spacing.padding.tablet};
+          padding: ${spacing.padding.laptop};
         }
       }
 
@@ -29,7 +29,9 @@ export const StyledLayout = styled.div<WithTheme>(
             100vh - ${spacing.headerHeight.laptop} -
               ${spacing.footerHeight.laptop}
           );
-          padding: ${spacing.padding.tablet};
+          width: ${spacing.containerWidth.laptop};
+          padding: ${spacing.padding.laptop};
+          margin: 0 auto;
         }
       }
     `;

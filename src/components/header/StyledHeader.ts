@@ -23,7 +23,7 @@ export const StyledHeader = styled.header<WithTheme>(
       }
 
       @media ${devices.tablet} {
-        padding: ${spacing.padding.tablet};
+        padding: ${spacing.padding.laptop};
       }
 
       @media ${devices.laptop} {

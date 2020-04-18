@@ -29,15 +29,11 @@ export const theme: ThemeType = {
     },
     padding: {
       mobile: "16px 16px",
-      tablet: "32px 40px",
-      laptop: "24px 40px",
-      desktop: "32px 48px",
+      laptop: "32px 40px",
     },
     containerWidth: {
       mobile: "100%",
-      tablet: "100%",
       laptop: "800px",
-      desktop: "800px",
     },
   },
 };

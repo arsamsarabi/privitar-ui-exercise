@@ -6,8 +6,15 @@ export const StyledCollapsible = styled.div(({ theme: { palette } }) => {
     background: ${palette.white};
     border: 2px solid ${palette.grey};
     padding: 8px 16px;
+
     &:not(:last-of-type) {
       margin-bottom: 16px;
+    }
+
+    @media ${devices.laptop} {
+      &:not(:last-of-type) {
+        margin-bottom: 24px;
+      }
     }
   `;
 });
@@ -55,10 +62,12 @@ export const StyledCollapsibleContent = styled.div(
       & > div {
         display: flex;
         align-items: center;
+
         p {
           min-width: 50%;
           font-size: 0.95rem;
         }
+
         span {
           color: ${palette.primary};
           font-weight: ${typography.weight.bold};
@@ -66,6 +75,7 @@ export const StyledCollapsibleContent = styled.div(
           white-space: nowrap;
           overflow: hidden;
         }
+
         &:not(:last-of-type) {
           margin-bottom: 8px;
         }
@@ -76,6 +86,7 @@ export const StyledCollapsibleContent = styled.div(
         flex-wrap: wrap;
         & > div {
           width: 50%;
+
           &:first-child {
             margin-right: 50%;
           }

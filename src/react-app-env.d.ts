@@ -9,18 +9,16 @@ type ColourPalette = {
   white: string;
 };
 
-type ResponsiveValue<T> = {
-  mobile: T;
-  tablet: T;
-  laptop: T;
-  desktop: T;
+type ResponsiveValue = {
+  mobile: string;
+  laptop: string;
 };
 
 type ThemeSpacing = {
-  headerHeight: Omit<ResponsiveValue<string>, "tablet", "desktop">;
-  footerHeight: Omit<ResponsiveValue<string>, "tablet", "desktop">;
-  padding: ResponsiveValue<string>;
-  containerWidth: ResponsiveValue<string>;
+  headerHeight: ResponsiveValue;
+  footerHeight: ResponsiveValue;
+  padding: ResponsiveValue;
+  containerWidth: ResponsiveValue;
 };
 
 type Typography = {
