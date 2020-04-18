@@ -27,14 +27,47 @@ class People implements IPeopleStore {
   fetchPeople = async (): Promise<void> => {
     this.loading = true;
 
-    const [error, response] = await to<services.IFetchPeopleResponse>(
-      services.fetchPeople()
-    );
+    // const [error, response] = await to<services.IFetchPeopleResponse>(
+    //   services.fetchPeople()
+    // );
 
-    if (error) {
-      console.error(error);
-      this.loading = false;
-    }
+    // if (error) {
+    //   console.error(error);
+    //   this.loading = false;
+    // }
+
+    const response = {
+      data: {
+        body: {
+          people: [
+            {
+              id: 1,
+              first_name: "Olive",
+              last_name: "Hue",
+              age: 27,
+              nationality: "Thaiwan",
+              risk_percentage: 35,
+            },
+            {
+              id: 2,
+              first_name: "Isabelle",
+              last_name: "Ringing",
+              age: 32,
+              nationality: "Spain",
+              risk_percentage: 81,
+            },
+            {
+              id: 3,
+              first_name: "Paige",
+              last_name: "Turner",
+              age: 24,
+              nationality: "United States",
+              risk_percentage: 44,
+            },
+          ],
+        },
+      },
+    };
 
     if (response) {
       this.people = [
