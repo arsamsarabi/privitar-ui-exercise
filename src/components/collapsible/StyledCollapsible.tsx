@@ -33,15 +33,6 @@ export const StyledCollapsibleHeader = styled.button(
   }
 );
 
-type StyledCollapsibleContentProps = WithTheme & {
-  open: boolean;
-};
-
-export const StyledCollapsibleContent = styled.div<
-  StyledCollapsibleContentProps
->(({ open, theme: { palette } }) => {
-  return css`
-    height: ${open ? "auto" : 0};
-    overflow: hidden;
-  `;
+export const StyledCollapsibleContent = styled.div(({ theme: { palette } }) => {
+  return css``;
 });

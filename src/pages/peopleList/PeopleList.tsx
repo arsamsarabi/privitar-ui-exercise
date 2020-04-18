@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, useState } from "react";
 
 import { useStore } from "../../store";
 import { StyledPeopleList } from "./StyledPeopleList";
@@ -9,6 +9,8 @@ const PeopleList: FC = (): ReactElement => {
     peopleStore: { people, loading },
   } = useStore();
 
+  const [expanded, setExpanded] = useState<false | number>(false);
+
   if (loading) return <Loading />;
 
   return (
@@ -16,10 +18,14 @@ const PeopleList: FC = (): ReactElement => {
       {people.map((person) => {
         return (
           <Collapsible
+            key={person.id}
+            id={person.id}
             name={person.fullName}
             age={person.age}
             nationality={person.nationality}
             privacyRisk={person.riskPercentage}
+            expanded={expanded}
+            setExpanded={setExpanded}
           />
         );
       })}

@@ -1,4 +1,5 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import {
   StyledCollapsible,
@@ -7,37 +8,60 @@ import {
 } from "./StyledCollapsible";
 
 interface ICollapsibleProps {
+  id: number;
   name: string;
   age: number;
   nationality: string;
   privacyRisk: number;
+  expanded: false | number;
+  setExpanded(val: false | number): void;
 }
 
 export const Collapsible: FC<ICollapsibleProps> = ({
+  id,
   name,
   age,
   nationality,
   privacyRisk,
+  expanded,
+  setExpanded,
 }): ReactElement => {
-  const [open, setOpen] = useState<boolean>(false);
+  const isOpen = id === expanded;
+
   return (
     <StyledCollapsible>
-      <StyledCollapsibleHeader onClick={() => setOpen(!open)}>
+      <StyledCollapsibleHeader onClick={() => setExpanded(isOpen ? false : id)}>
         <p>{name}</p>
-        <span>{open ? "-" : "+"}</span>
+        <span>{isOpen ? "-" : "+"}</span>
       </StyledCollapsibleHeader>
-      <StyledCollapsibleContent open={open}>
-        <p>
-          Age: <span>{age}</span>
-        </p>
-        <div />
-        <p>
-          Nationality: <span>{nationality}</span>
-        </p>
-        <p>
-          Privacy Risk: <span>{privacyRisk}%</span>
-        </p>
-      </StyledCollapsibleContent>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.section
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: "auto" },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+          >
+            <StyledCollapsibleContent>
+              <p>
+                Age: <span>{age}</span>
+              </p>
+              <div />
+              <p>
+                Nationality: <span>{nationality}</span>
+              </p>
+              <p>
+                Privacy Risk: <span>{privacyRisk}%</span>
+              </p>
+            </StyledCollapsibleContent>
+          </motion.section>
+        )}
+      </AnimatePresence>
     </StyledCollapsible>
   );
 };

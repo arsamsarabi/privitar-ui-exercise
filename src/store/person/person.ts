@@ -1,7 +1,7 @@
 import { observable, computed } from "mobx";
 
 export interface IPerson {
-  id?: number;
+  id: number;
   firstName: string;
   lastName: string;
   nationality: string;
@@ -14,7 +14,7 @@ export interface IPersonStore extends IPerson {
 }
 
 class Person implements IPersonStore {
-  @observable id?: number;
+  @observable id: number;
   @observable firstName: string;
   @observable lastName: string;
   @observable nationality: string;
@@ -22,7 +22,7 @@ class Person implements IPersonStore {
   @observable riskPercentage: number;
 
   constructor(args: IPerson) {
-    this.id = args.id;
+    this.id = args.id || 999;
     this.firstName = args.firstName;
     this.lastName = args.lastName;
     this.nationality = args.nationality;
