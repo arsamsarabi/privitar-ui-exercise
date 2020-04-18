@@ -17,6 +17,10 @@ export const StyledLayout = styled.div<WithTheme>(
         overflow-y: auto;
         padding: ${spacing.padding.mobile};
       }
+
+      @media ${devices.tablet} {
+        background: hotpink;
+      }
     `;
   }
 );

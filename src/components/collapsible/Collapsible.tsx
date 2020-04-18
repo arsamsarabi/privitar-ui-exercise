@@ -22,9 +22,9 @@ export const Collapsible: FC<ICollapsibleProps> = ({
   const [open, setOpen] = useState<boolean>(false);
   return (
     <StyledCollapsible>
-      <StyledCollapsibleHeader>
+      <StyledCollapsibleHeader onClick={() => setOpen(!open)}>
         <p>{name}</p>
-        <button onClick={() => setOpen(!open)}>{open ? "-" : "+"}</button>
+        <span>{open ? "-" : "+"}</span>
       </StyledCollapsibleHeader>
       <StyledCollapsibleContent open={open}>
         <p>

@@ -11,9 +11,10 @@ export const StyledCollapsible = styled.div(({ theme: { palette } }) => {
   `;
 });
 
-export const StyledCollapsibleHeader = styled.div(
+export const StyledCollapsibleHeader = styled.button(
   ({ theme: { palette, typography } }) => {
     return css`
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -23,7 +24,7 @@ export const StyledCollapsibleHeader = styled.div(
         font-weight: ${typography.weight.bold};
       }
 
-      button {
+      span {
         font-family: ${typography.family.secondary};
         font-size: 1.5rem;
         color: ${palette.common.grey};

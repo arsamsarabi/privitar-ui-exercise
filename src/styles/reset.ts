@@ -144,4 +144,18 @@ export const resetCss = css`
     max-width: 100%;
     height: auto;
   }
+  button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    outline: none;
+    background: transparent;
+    text-align: inherit;
+    border-radius: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+  }
 `;

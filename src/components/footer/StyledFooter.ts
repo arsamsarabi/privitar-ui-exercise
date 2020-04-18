@@ -18,6 +18,10 @@ export const StyledFooter = styled.footer<WithTheme>(
       p {
         color: ${palette.primary.main};
       }
+
+      @media ${devices.tablet} {
+        background: hotpink;
+      }
     `;
   }
 );
