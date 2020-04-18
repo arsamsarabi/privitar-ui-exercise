@@ -1,7 +1,12 @@
 import React, { FC, ReactElement } from "react";
 
 import { useStore } from "../../store";
-import { StyledHeader } from "./StyledHeader";
+import {
+  StyledHeader,
+  StyledLogo,
+  StyledAppName,
+  StyledSubTitle,
+} from "./StyledHeader";
 
 const Header: FC = (): ReactElement => {
   const {
@@ -11,14 +16,14 @@ const Header: FC = (): ReactElement => {
   return (
     <StyledHeader>
       <div>
-        <img src="/images/logo_square.png" alt="Privitar Logo" />
+        <StyledLogo src="/images/logo_square.png" alt="Privitar Logo" />
       </div>
       <div>
-        <h1>Privitar Privacy Protector</h1>
-        <p>
+        <StyledAppName>Privitar Privacy Protector</StyledAppName>
+        <StyledSubTitle>
           <span>{people.length}</span>
           people protected
-        </p>
+        </StyledSubTitle>
       </div>
     </StyledHeader>
   );

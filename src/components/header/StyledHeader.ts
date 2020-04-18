@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { devices } from "../../styles";
 
 export const StyledHeader = styled.header<WithTheme>(
-  ({ theme: { spacing, palette, typography } }) => {
+  ({ theme: { spacing, palette } }) => {
     return css`
       display: flex;
       align-items: center;
@@ -22,26 +22,48 @@ export const StyledHeader = styled.header<WithTheme>(
         }
       }
 
-      img {
-        width: 35px;
-      }
-
-      h1 {
-        font-size: 1.25rem;
-        color: ${palette.primary};
-      }
-
-      p {
-        font-size: 0.9rem;
-        span {
-          color: ${palette.secondary};
-          font-weight: ${typography.weight.bold};
-          margin-right: 4px;
-        }
+      @media ${devices.tablet} {
+        padding: ${spacing.padding.tablet};
       }
 
       @media ${devices.laptop} {
         height: ${spacing.headerHeight.laptop};
+      }
+    `;
+  }
+);
+
+export const StyledLogo = styled.img`
+  width: 35px;
+
+  @media ${devices.tablet} {
+    width: 50px;
+  }
+`;
+
+export const StyledAppName = styled.h1<WithTheme>(({ theme: { palette } }) => {
+  return css`
+    font-size: 1.25rem;
+    color: ${palette.primary};
+
+    @media ${devices.tablet} {
+      font-size: 1.5rem;
+    }
+  `;
+});
+
+export const StyledSubTitle = styled.p<WithTheme>(
+  ({ theme: { palette, typography } }) => {
+    return css`
+      font-size: 0.9rem;
+      span {
+        color: ${palette.secondary};
+        font-weight: ${typography.weight.bold};
+        margin-right: 4px;
+      }
+
+      @media ${devices.tablet} {
+        font-size: 1.125rem;
       }
     `;
   }

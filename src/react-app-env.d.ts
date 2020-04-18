@@ -17,8 +17,8 @@ type ResponsiveValue<T> = {
 };
 
 type ThemeSpacing = {
-  headerHeight: ResponsiveValue<string>;
-  footerHeight: ResponsiveValue<string>;
+  headerHeight: Omit<ResponsiveValue<string>, "tablet", "desktop">;
+  footerHeight: Omit<ResponsiveValue<string>, "tablet", "desktop">;
   padding: ResponsiveValue<string>;
   containerWidth: ResponsiveValue<string>;
 };

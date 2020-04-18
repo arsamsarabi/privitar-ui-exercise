@@ -18,7 +18,9 @@ export const StyledLayout = styled.div<WithTheme>(
       }
 
       @media ${devices.tablet} {
-        background: hotpink;
+        main {
+          padding: ${spacing.padding.tablet};
+        }
       }
     `;
   }

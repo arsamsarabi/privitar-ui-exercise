@@ -19,7 +19,10 @@ export const StyledFooter = styled.footer<WithTheme>(
       }
 
       @media ${devices.tablet} {
-        background: hotpink;
+        padding: ${spacing.padding.tablet};
+        p {
+          font-size: 1.25rem;
+        }
       }
     `;
   }

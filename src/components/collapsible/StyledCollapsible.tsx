@@ -30,6 +30,17 @@ export const StyledCollapsibleHeader = styled.button(
         font-size: 1.5rem;
         color: ${palette.grey};
       }
+
+      @media ${devices.tablet} {
+        p {
+          font-size: 1.25rem;
+        }
+
+        span {
+          line-height: 1;
+          font-size: 2.5rem;
+        }
+      }
     `;
   }
 );
@@ -43,6 +54,7 @@ export const StyledCollapsibleContent = styled.div(
 
       & > div {
         display: flex;
+        align-items: center;
         p {
           min-width: 50%;
           font-size: 0.95rem;
@@ -62,8 +74,19 @@ export const StyledCollapsibleContent = styled.div(
       @media ${devices.tablet} {
         flex-direction: row;
         flex-wrap: wrap;
-        & > * {
+        & > div {
           width: 50%;
+          &:first-child {
+            margin-right: 50%;
+          }
+
+          p {
+            font-size: 1.25rem;
+          }
+
+          span {
+            font-size: 1.35rem;
+          }
         }
       }
     `;

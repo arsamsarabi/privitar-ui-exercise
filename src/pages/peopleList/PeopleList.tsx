@@ -1,7 +1,6 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useState, Fragment } from "react";
 
 import { useStore } from "../../store";
-import { StyledPeopleList } from "./StyledPeopleList";
 import { Collapsible, Loading, AddPeople } from "../../components";
 
 const PeopleList: FC = (): ReactElement => {
@@ -14,7 +13,7 @@ const PeopleList: FC = (): ReactElement => {
   if (loading) return <Loading />;
 
   return (
-    <StyledPeopleList>
+    <Fragment>
       {people.map((person) => {
         return (
           <Collapsible
@@ -31,7 +30,7 @@ const PeopleList: FC = (): ReactElement => {
       })}
 
       <AddPeople handleSubmit={addPeople} />
-    </StyledPeopleList>
+    </Fragment>
   );
 };
 

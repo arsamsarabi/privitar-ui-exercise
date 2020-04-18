@@ -1,6 +1,10 @@
 import React, { FC, ReactElement, useState, ChangeEvent } from "react";
 
-import { StyledAddPeople } from "./StyledAddPeople";
+import {
+  StyledAddPeople,
+  StyledTextArea,
+  StyledButton,
+} from "./StyledAddPeople";
 
 interface IAddPeopleProps {
   handleSubmit(value: string): void;
@@ -18,15 +22,18 @@ export const AddPeople: FC<IAddPeopleProps> = ({
 
   return (
     <StyledAddPeople>
-      <textarea
+      <StyledTextArea
         onChange={handleChange}
         placeholder="Name, Country, Age, Risk percentage"
         rows={10}
         value={value}
       />
-      <button onClick={() => handleSubmit(value)} disabled={!value.length}>
+      <StyledButton
+        onClick={() => handleSubmit(value)}
+        disabled={!value.length}
+      >
         SUBMIT
-      </button>
+      </StyledButton>
     </StyledAddPeople>
   );
 };

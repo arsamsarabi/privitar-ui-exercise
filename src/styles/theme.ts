@@ -21,19 +21,15 @@ export const theme: ThemeType = {
   spacing: {
     headerHeight: {
       mobile: "75px",
-      tablet: "75px",
       laptop: "200px",
-      desktop: "200px",
     },
     footerHeight: {
       mobile: "75px",
-      tablet: "75px",
       laptop: "100px",
-      desktop: "100px",
     },
     padding: {
       mobile: "16px 16px",
-      tablet: "16px 32px",
+      tablet: "32px 40px",
       laptop: "24px 40px",
       desktop: "32px 48px",
     },
