@@ -1,4 +1,5 @@
 import { observable, action } from "mobx";
+import to from "await-to-js";
 
 import Person, { IPersonStore } from "../person/person";
 import * as services from "../services/services";
@@ -21,15 +22,18 @@ class People implements IPeopleStore {
   @action
   fetchPeople = async (): Promise<void> => {
     this.loading = true;
-    try {
-      const response = await services.fetchPeople();
+
+    const [error, response] = await to(services.fetchPeople());
+
+    if (error) {
+      console.error(error);
+      this.loading = false;
+    }
+    if (response) {
       this.people = [
         ...this.people,
         ...this.peopleFromApiResponse(response.data.body.people),
       ];
-      this.loading = false;
-    } catch (error) {
-      console.error(error);
       this.loading = false;
     }
   };

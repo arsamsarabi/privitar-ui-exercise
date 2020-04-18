@@ -21,6 +21,7 @@ type ColourPalette = {
 
 type ThemeConfig = {
   headerHeight: string;
+  footerHeight: string;
   pagePadding: {
     laptop: {
       v: string;

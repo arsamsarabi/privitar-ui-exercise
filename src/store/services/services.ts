@@ -1,6 +1,6 @@
 import { axios } from "../../utils/axios";
 
-const { API_URL = "" } = process.env;
+const { REACT_APP_API_URL = "" } = process.env;
 
 export interface IApiPerson {
   id: number;
@@ -20,4 +20,4 @@ export interface IFetchPeopleResponse {
 }
 
 export const fetchPeople = async (): Promise<IFetchPeopleResponse> =>
-  axios.get(API_URL);
+  axios.get(REACT_APP_API_URL);

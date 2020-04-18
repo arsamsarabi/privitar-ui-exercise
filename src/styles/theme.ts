@@ -44,7 +44,8 @@ export const theme: ThemeType = {
     },
   },
   config: {
-    headerHeight: "48px",
+    headerHeight: "200px",
+    footerHeight: "100px",
     pagePadding: {
       laptop: {
         v: "24px",
