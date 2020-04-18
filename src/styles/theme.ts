@@ -43,20 +43,30 @@ export const theme: ThemeType = {
       white: "#ecf0f1",
     },
   },
-  config: {
-    headerHeight: "200px",
-    footerHeight: "100px",
-    pagePadding: {
-      laptop: {
-        v: "24px",
-        h: "40px",
-      },
+  spacing: {
+    headerHeight: {
+      mobile: "75px",
+      tablet: "75px",
+      laptop: "200px",
+      desktop: "200px",
     },
-    headerPadding: {
-      laptop: {
-        v: "12px",
-        h: "40px",
-      },
+    footerHeight: {
+      mobile: "75px",
+      tablet: "75px",
+      laptop: "100px",
+      desktop: "100px",
+    },
+    padding: {
+      mobile: "8px 16px",
+      tablet: "16px 32px",
+      laptop: "24px 40px",
+      desktop: "32px 48px",
+    },
+    containerWidth: {
+      mobile: "100%",
+      tablet: "100%",
+      laptop: "800px",
+      desktop: "800px",
     },
   },
 };

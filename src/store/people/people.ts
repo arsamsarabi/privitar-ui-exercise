@@ -23,12 +23,15 @@ class People implements IPeopleStore {
   fetchPeople = async (): Promise<void> => {
     this.loading = true;
 
-    const [error, response] = await to(services.fetchPeople());
+    const [error, response] = await to<services.IFetchPeopleResponse>(
+      services.fetchPeople()
+    );
 
     if (error) {
       console.error(error);
       this.loading = false;
     }
+
     if (response) {
       this.people = [
         ...this.people,

@@ -19,21 +19,18 @@ type ColourPalette = {
   common: CommonColours;
 };
 
-type ThemeConfig = {
-  headerHeight: string;
-  footerHeight: string;
-  pagePadding: {
-    laptop: {
-      v: string;
-      h: string;
-    };
-  };
-  headerPadding: {
-    laptop: {
-      v: string;
-      h: string;
-    };
-  };
+type ResponsiveValue<T> = {
+  mobile: T;
+  tablet: T;
+  laptop: T;
+  desktop: T;
+};
+
+type ThemeSpacing = {
+  headerHeight: ResponsiveValue<string>;
+  footerHeight: ResponsiveValue<string>;
+  padding: ResponsiveValue<string>;
+  containerWidth: ResponsiveValue<string>;
 };
 
 type Typography = {
@@ -51,7 +48,7 @@ type Typography = {
 type ThemeType = {
   typography: Typography;
   palette: ColourPalette;
-  config: ThemeConfig;
+  spacing: ThemeSpacing;
 };
 
 type WithTheme = {

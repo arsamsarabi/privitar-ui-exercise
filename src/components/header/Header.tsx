@@ -10,8 +10,16 @@ const Header: FC = (): ReactElement => {
 
   return (
     <StyledHeader>
-      <h1>Privitar Privacy Protector</h1>
-      <p>{`${people.length} people protected`}</p>
+      <div>
+        <img src="/images/logo_square.png" alt="Privitar Logo" />
+      </div>
+      <div>
+        <h1>Privitar Privacy Protector</h1>
+        <p>
+          <span>{people.length}</span>
+          people protected
+        </p>
+      </div>
     </StyledHeader>
   );
 };
