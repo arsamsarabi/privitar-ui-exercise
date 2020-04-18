@@ -11,7 +11,8 @@ export const StyledHeader = styled.header<WithTheme>(
       padding: ${spacing.padding.mobile};
       width: 100vw;
       height: ${spacing.headerHeight.mobile};
-      box-shadow: 0 0px 10px 0px ${rgba(palette.primary.light, 0.25)};
+      box-shadow: 0 0px 10px 0px ${rgba(palette.primary.light, 0.35)};
+      z-index: 1;
 
       & > div {
         &:first-of-type {

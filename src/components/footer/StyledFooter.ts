@@ -11,8 +11,9 @@ export const StyledFooter = styled.footer<WithTheme>(
       justify-content: center;
       width: ${spacing.containerWidth.mobile};
       height: ${spacing.footerHeight.mobile};
-      box-shadow: 0 0px 10px 0px ${rgba(palette.primary.light, 0.25)};
+      box-shadow: 0 0px 10px 0px ${rgba(palette.primary.light, 0.35)};
       padding: ${spacing.padding.mobile};
+      z-index: 1;
 
       p {
         color: ${palette.primary.main};

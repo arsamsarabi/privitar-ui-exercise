@@ -8,8 +8,8 @@ const DANGER_COLOUR = "#e74c3c";
 export const theme: ThemeType = {
   typography: {
     family: {
-      primary: '"Nunito", Arial, sans-serif',
-      secondary: "Sen",
+      primary: "Lato, Arial, sans-serif",
+      secondary: "'Carter One', cursive",
     },
     weight: {
       light: 300,
@@ -40,7 +40,7 @@ export const theme: ThemeType = {
     },
     common: {
       grey: "#575757",
-      white: "#ecf0f1",
+      white: "#fff",
     },
   },
   spacing: {
@@ -57,7 +57,7 @@ export const theme: ThemeType = {
       desktop: "100px",
     },
     padding: {
-      mobile: "8px 16px",
+      mobile: "16px 16px",
       tablet: "16px 32px",
       laptop: "24px 40px",
       desktop: "32px 48px",
