@@ -1,7 +1,7 @@
 import * as moxios from "moxios";
 
 import { axios } from "../../utils/axios";
-import People, { IPeople } from "./people";
+import People, { IPeopleStore } from "./people";
 
 const MOCK_PEOPLE = [
   {
@@ -31,7 +31,7 @@ const MOCK_PEOPLE = [
 ];
 
 describe("People Store", () => {
-  let peopleStore: IPeople;
+  let peopleStore: IPeopleStore;
 
   beforeEach(() => {
     peopleStore = new People();

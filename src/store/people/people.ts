@@ -1,7 +1,7 @@
 import { observable, action } from "mobx";
 
 import Person, { IPersonStore } from "../person/person";
-import * as services from "../service/service";
+import * as services from "../services/services";
 
 export interface IPeopleStore {
   people: IPersonStore[];
