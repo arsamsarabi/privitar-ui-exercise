@@ -2,7 +2,7 @@
 
 # Privitar UI Exercise
 
-> 19 API 2020
+> 19 APR 2020
 
 👨🏻‍💻 [Arsam Sarabi](https://github.com/arsamsarabi)
 
