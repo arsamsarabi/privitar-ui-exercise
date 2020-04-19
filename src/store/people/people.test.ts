@@ -30,6 +30,16 @@ const MOCK_PEOPLE = [
   },
 ];
 
+const RAW_INPUT = `
+Ramiro    Escobar   GB   23  0.1000
+Jennifer Stevens   US   34 1.02
+Shreya Khan IN  16/02/1991   0.7
+Katherine Hannah  Long FR  10/01/1978 0.1
+Willem de    Leeuw Verbeek  NL   44 0.45
+Joseane   Silva  MX  12/12/1993 1.2300
+Charlie Smith   IE 22 0.005e2
+`;
+
 describe("People Store", () => {
   let peopleStore: IPeopleStore;
 
@@ -70,6 +80,29 @@ describe("People Store", () => {
       expect(
         peopleStore.people[peopleStore.people.length - 1].nationality
       ).toBe("United States");
+    });
+
+    it("Should parse raw data correctly", async () => {
+      await peopleStore.addPeople(RAW_INPUT);
+
+      expect(peopleStore.people.length).toBe(7);
+
+      expect(peopleStore.people[0].firstName).toBe("Ramiro");
+      expect(peopleStore.people[0].lastName).toBe("Escobar");
+      expect(peopleStore.people[0].nationality).toBe("GB");
+      expect(peopleStore.people[0].age).toBe(23);
+      expect(peopleStore.people[0].riskPercentage).toBe(10);
+
+      expect(peopleStore.people[1].riskPercentage).toBe(undefined);
+
+      expect(peopleStore.people[2].age).toBe(29);
+
+      expect(peopleStore.people[4].fullName).toBe("Willem de Leeuw Verbeek");
+
+      expect(peopleStore.people[6].riskPercentage).toBe(50);
+
+      await peopleStore.addPeople(RAW_INPUT);
+      expect(peopleStore.people.length).toBe(14);
     });
   });
 });

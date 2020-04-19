@@ -89,22 +89,24 @@ class People implements IPeopleStore {
     raw: string
   ): Omit<services.IApiPerson, "id">[] => {
     const result: Omit<services.IApiPerson, "id">[] = [];
-
-    raw.split("\n").forEach((line: string) => {
-      const rawPersonData = line.split(" ");
-      const risk_percentage = this.parseRiskPercentage(rawPersonData.pop());
-      const age = this.parseAge(rawPersonData.pop());
-      const nationality = String(rawPersonData.pop());
-      const first_name = String(rawPersonData.shift());
-      const last_name = rawPersonData.join(" ");
-      result.push({
-        first_name,
-        last_name,
-        nationality,
-        age,
-        risk_percentage,
+    raw
+      .split("\n")
+      .filter((line) => line.length)
+      .forEach((line: string) => {
+        const rawPersonData = line.split(" ").filter((el) => el.length);
+        const risk_percentage = this.parseRiskPercentage(rawPersonData.pop());
+        const age = this.parseAge(rawPersonData.pop());
+        const nationality = String(rawPersonData.pop());
+        const first_name = String(rawPersonData.shift());
+        const last_name = rawPersonData.join(" ");
+        result.push({
+          first_name,
+          last_name,
+          nationality,
+          age,
+          risk_percentage,
+        });
       });
-    });
     return result;
   };
 
