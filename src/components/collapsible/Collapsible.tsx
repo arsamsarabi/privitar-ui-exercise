@@ -29,7 +29,7 @@ export const Collapsible: FC<ICollapsibleProps> = ({
   const isOpen = id === expanded;
 
   return (
-    <StyledCollapsible>
+    <StyledCollapsible id={`collapsible-${id}`}>
       <StyledCollapsibleHeader
         id="collapse-header"
         onClick={() => setExpanded(isOpen ? false : id)}

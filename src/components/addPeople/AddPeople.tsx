@@ -20,7 +20,7 @@ export const AddPeople: FC<IAddPeopleProps> = ({
   };
 
   return (
-    <StyledAddPeople>
+    <StyledAddPeople id="addPeople">
       <StyledTextArea
         onChange={handleChange}
         placeholder="Name, Country, Age, Risk percentage"
