@@ -13,7 +13,7 @@
 
 ## Built with
 
-1. `create-react-app --template typescript` as per the instructions
+1. `create-react-app --template typescript`
 2. `MobX` => state management
 3. `styled-components` => styling
 4. `framer-motion` => animations
