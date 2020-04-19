@@ -16,7 +16,6 @@ export const AddPeople: FC<IAddPeopleProps> = ({
   const [value, setValue] = useState<string>("");
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
-    event.preventDefault();
     setValue(event.target.value);
   };
 
@@ -27,10 +26,12 @@ export const AddPeople: FC<IAddPeopleProps> = ({
         placeholder="Name, Country, Age, Risk percentage"
         rows={10}
         value={value}
+        id="textarea"
       />
       <StyledButton
         onClick={() => handleSubmit(value)}
         disabled={!value.length}
+        id="submit-button"
       >
         SUBMIT
       </StyledButton>

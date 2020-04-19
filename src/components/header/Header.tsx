@@ -21,7 +21,7 @@ const Header: FC = (): ReactElement => {
       <div>
         <StyledAppName>Privitar Privacy Protector</StyledAppName>
         <StyledSubTitle>
-          <span>{people.length}</span>
+          <span id="protected-count">{people.length}</span>
           people protected
         </StyledSubTitle>
       </div>

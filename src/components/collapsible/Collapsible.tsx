@@ -7,7 +7,7 @@ import {
   StyledCollapsibleContent,
 } from "./StyledCollapsible";
 
-interface ICollapsibleProps {
+export interface ICollapsibleProps {
   id: number;
   name: string;
   age?: number;
@@ -30,9 +30,12 @@ export const Collapsible: FC<ICollapsibleProps> = ({
 
   return (
     <StyledCollapsible>
-      <StyledCollapsibleHeader onClick={() => setExpanded(isOpen ? false : id)}>
-        <p>{name}</p>
-        <span>{isOpen ? "-" : "+"}</span>
+      <StyledCollapsibleHeader
+        id="collapse-header"
+        onClick={() => setExpanded(isOpen ? false : id)}
+      >
+        <p id="person-name">{name}</p>
+        <span id="collapse-icon">{isOpen ? "-" : "+"}</span>
       </StyledCollapsibleHeader>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -50,15 +53,17 @@ export const Collapsible: FC<ICollapsibleProps> = ({
             <StyledCollapsibleContent>
               <div>
                 <p>Age:</p>
-                <span>{age || "-"}</span>
+                <span id="person-age">{age || "-"}</span>
               </div>
               <div>
                 <p>Nationality:</p>
-                <span>{nationality}</span>
+                <span id="person-nationality">{nationality}</span>
               </div>
               <div>
                 <p>Privacy Risk:</p>
-                <span>{privacyRisk ? `${privacyRisk}%` : "-"}</span>
+                <span id="person-risk-percentage">
+                  {privacyRisk ? `${privacyRisk}%` : "-"}
+                </span>
               </div>
             </StyledCollapsibleContent>
           </motion.section>
