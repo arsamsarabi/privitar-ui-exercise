@@ -1,11 +1,14 @@
 import { observable, action } from "mobx";
 import to from "await-to-js";
+import dayjs from "dayjs";
 
 import Person, { IPersonStore } from "../person/person";
+import Settings, { ISettingsStore } from "../settings/settings";
 import * as services from "../services/services";
 
 export interface IPeopleStore {
   people: IPersonStore[];
+  settings: ISettingsStore;
   loading: boolean;
   fetchPeople(): Promise<void>;
   addPeople(raw: string): void;
@@ -13,11 +16,13 @@ export interface IPeopleStore {
 
 class People implements IPeopleStore {
   @observable people: IPersonStore[];
+  @observable settings: ISettingsStore;
   @observable loading: boolean;
   @observable peopleTextArea: string;
 
   constructor() {
     this.people = [];
+    this.settings = new Settings({ dobDateFormat: "DD/MM/YYYY" });
     this.loading = false;
     this.peopleTextArea = "";
     this.fetchPeople();
@@ -127,15 +132,11 @@ class People implements IPeopleStore {
   };
 
   protected calculateAge = (dob: string): number => {
-    const [day, month, year] = dob.split("/");
-    const birthday = new Date(
-      parseInt(year),
-      parseInt(month) - 1,
-      parseInt(day)
-    );
-    const ageDifMs = Date.now() - birthday.getTime();
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    const dayjsDob = dayjs(dob, this.settings.dobDateFormat);
+    const today = dayjs(new Date(), this.settings.dobDateFormat);
+    const age = today.diff(dayjsDob, "year");
+
+    return age;
   };
 }
 
